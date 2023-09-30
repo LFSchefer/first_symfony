@@ -23,6 +23,7 @@ class HomeController extends AbstractController
           <html>
             <body>
               $greet
+              <p>Welcome to this first controller page</p>
             </body>
           </html>
           EOF
