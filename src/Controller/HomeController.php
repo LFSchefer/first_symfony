@@ -24,6 +24,7 @@ class HomeController extends AbstractController
             <body>
               $greet
               <p>Welcome to this first controller page</p>
+              <p>let's trigger git hub tracker</p>
             </body>
           </html>
           EOF
