@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use  Symfony\Component\Routing\Annotation\Route;
+use function Symfony\Component\String\u;
 
-class LuckyController
+
+class LuckyController extends AbstractController
 {
     #[Route('/lucky/number')]
     public function number(): Response
@@ -16,5 +19,18 @@ class LuckyController
             '<html><body>Lucky number: '.$number.'</body></html>'
 
         );
+    }
+
+
+    #[Route('/browse/{slug}')]
+    public function browse(string $slug = null): Response
+    {
+      if ($slug) {
+        $title = 'Genre' .u(str_replace('-', ' ', $slug))->title(true);
+      }
+      else {
+        $title = 'All genres';
+      }
+        return new Response($title);
     }
 }
