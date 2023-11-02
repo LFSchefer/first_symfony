@@ -10,7 +10,7 @@ use function Symfony\Component\String\u;
 
 class LuckyController extends AbstractController
 {
-    #[Route('/lucky/number')]
+    #[Route('/lucky/number', name: 'lucky')]
     public function number(): Response
     {
         $number = random_int(0, 100);
@@ -23,7 +23,7 @@ class LuckyController extends AbstractController
 
 
 
-    #[Route('/')]
+    #[Route('/', name: 'app_home')]
     public function homepage(): Response
     {
       $tracks = [
@@ -43,7 +43,7 @@ class LuckyController extends AbstractController
     }
 
 
-    #[Route('/browse/{slug}')]
+    #[Route('/browse/{slug}', name: 'app_browse')]
     public function browse(string $slug = null): Response
     {
       $genre = $slug ? u(str_replace('-', ' ', $slug))->title(true) : null;
