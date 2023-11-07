@@ -41,15 +41,4 @@ class LuckyController extends AbstractController
         'tracks' => $tracks
       ]);
     }
-
-
-    #[Route('/browse/{slug}', name: 'app_browse')]
-    public function browse(string $slug = null): Response
-    {
-      $genre = $slug ? u(str_replace('-', ' ', $slug))->title(true) : null;
-
-      return $this->render('vinyl/browse.html.twig', [
-        "genre" => $genre
-      ]);
-    }
 }
